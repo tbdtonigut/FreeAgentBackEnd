@@ -42,7 +42,7 @@ class Cuota(models.Model):
     cuota_id = models.BigIntegerField(primary_key=True)
     equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE, blank=False)
     precio = models.DecimalField(max_digits=4, decimal_places=2, blank=False)
-    renovacion_automatica = models.CharField(max_length=10, blank=False)
+    renovacion_automatica = models.BooleanField(blank=False)
     fecha_inicio = models.DateField(blank=False)
     fecha_final = models.DateField(blank=False)
     cuotas = models.Manager()

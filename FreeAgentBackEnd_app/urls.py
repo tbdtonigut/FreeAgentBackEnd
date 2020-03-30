@@ -1,7 +1,9 @@
 from django.urls import path
-from FreeAgentBackEnd_app.views import JugadorList, JugadorDetail, EquipoList, EquipoDetail, JuegoList, JuegoDetail, OfertaList, OfertaDetail, TorneoList, TorneoDetail, CuotaList, CuotaDetail
+from FreeAgentBackEnd_app.views import JugadorList, JugadorDetail, EquipoList, EquipoDetail, JuegoList, JuegoDetail, \
+    OfertaList, OfertaDetail, TorneoList, TorneoDetail, CuotaList, CuotaDetail, JugadorByEquipo, login
 
 urlpatterns = [
+    path('v1/login/', login, name='Login'),
     path('v1/equipo/', EquipoList.as_view(), name='Equipo List'),
     path('v1/equipo/<int:pk>', EquipoDetail.as_view(), name="Equipo Detail"),
     path('v1/jugador/', JugadorList.as_view(), name='Jugador List'),
@@ -14,5 +16,7 @@ urlpatterns = [
     path('v1/torneo/<int:pk>', TorneoDetail.as_view(), name="Torneo Detail"),
     path('v1/juego/', JuegoList.as_view(), name='Juego List'),
     path('v1/juego/<int:pk>', JuegoDetail.as_view(), name="Juego Detail"),
-    path('v1/jugadorByEquipo/<int:pk>', JugadorList.as_view(), name='JugadorByEquipo List'),
+    path('v1/jugadorByEquipo/<int:pk>', JugadorByEquipo.as_view(), name='JugadorByEquipo List'),
 ]
+
+
